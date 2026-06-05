@@ -1,0 +1,102 @@
+{% extends 'header_footer.html' %}
+{% block content %}
+<style>
+body {
+    background: black;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: #BA68C8;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+    
+</style>
+<script https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css></script>
+<script https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css></script>
+<script https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js></script>
+<script https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js></script>
+<div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+                        <h6>My Profile</h6>
+
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="/static/assets/images/dummy.jpg" width="90">
+
+
+
+                {% for x in var %}<span class="font-weight-bold">{{x.name}}</span><span class="text-black-50">{{x.email}}</span><span class="text-black-50">password:{{x.password}}</span><span class="text-black-50">{{x.phone}}</span>{% endfor %}</div>
+        </div>
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <form method="POST" action="/edit_profile/">
+                    {% csrf_token %}
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex flex-row align-items-center back">
+                    </div>
+                    <h6 class="text-right">Edit Profile</h6>
+                </div>
+                {% for x in var %}
+                <div class="row mt-2">
+                    <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="name" value="{{x.name}}"></div>
+                    <!-- <div class="col-md-6"><input type="text" class="form-control" value="{{x.name}}" placeholder="Doe"></div> -->
+                </div>
+
+                <div class="row mt-3">
+                    <label>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+                    <div class="col-md-6"><input type="text" name="email" class="form-control" placeholder="Email" value="{{x.email}}"></div>
+                   <!--  <div class="col-md-6"><input type="text" class="form-control" value="+19685969668" placeholder="Phone number"></div> -->
+                </div>
+
+                <div class="row mt-3">
+                    <label>Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+                    <div class="col-md-6"><input type="text" name="phone" class="form-control" placeholder="Phone number" value="{{x.phone}}"></div>
+                    <!-- <div class="col-md-6"><input type="text" class="form-control" value="USA" placeholder="Country"></div> -->
+                </div>
+
+                <div class="row mt-3">
+                    <label>Password:</label>
+
+                    <div class="col-md-6"><input type="password" class="form-control" name="password" placeholder="Password" value="{{x.password}}"></div>
+                   <!--  <div class="col-md-6"><input type="text" class="form-control" value="043958409584095" placeholder="Account Number"></div> -->
+                </div>
+                <!-- <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Save Profile</button> -->
+                     <div class="mt-5 text-right">
+                    <input type="submit" class="btn btn-primary profile-button" value="Save Profile">
+                </div>
+                {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

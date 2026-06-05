@@ -1,0 +1,102 @@
+{% extends 'police/police_home.html' %}
+{% block content %}
+
+	
+
+<!-- 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+ <style type="text/css">
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 100px;
+          margin-top:   auto;
+          border: 10px;
+        }
+
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;color: black;}
+
+        #customers tr:nth-child(odd){background-color: #ddd;color: black;}
+
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: black;
+          color: white;
+        }
+
+    </style>
+    <div class="candidate_cv">
+    <div class="services" id="services">
+        <div class="container">
+            <div class="tittle_head_w3ls">
+                <br>
+                <h3 class="tittle"><center>Currency Details</center></h3><br><br>
+            </div>
+            <div class="inner_sec_grids_info_w3ls">
+<center>
+
+<img src="{{ currency.image.url }}" width="250px" height="250px"><br><br>
+
+<h2>{{ currency.result }}</h2>
+
+<table class="table table-bordered" style="width:50%;margin:auto;">
+    <tr>
+        <th>Name</th>
+        <td>{{ currency.user_id.name }}</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>{{ currency.user_id.email }}</td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td>{{ currency.user_id.phone }}</td>
+    </tr>
+    <tr>
+        <th>Place</th>
+        <td>{{ currency.user_id.place }}</td>
+    </tr>
+</table>
+
+</center>
+
+
+            </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div></div>
+ {% if error %}
+<script type="text/javascript">
+  swal("Error!", "{{error}}", "error");
+</script>
+{% endif %}
+
+{% if success %}
+<script type="text/javascript">
+  swal("Congrats!", "{{success}}", "success");
+</script>
+{% endif %}
+
+{% if info %}
+<script type="text/javascript">
+  swal("Information!", "{{info}}", "info");
+</script>
+{% endif %}
+
+{% endblock %} 
+

@@ -1,0 +1,27 @@
+{% extends 'header_footer_user.html' %}
+{% block content %}
+
+   <div class="form-41-mian section-gap mt-5">
+        <div class="container">
+          <div class="d-grid align-form-map">
+            <div class="form-inner-cont">
+              <form action="/check_note/" method="post" enctype="multipart/form-data" class="signin-form">
+                {% csrf_token %}
+
+                <div class="form-input">
+                  <label for="w3lName">Choose Note</label>
+                  <input type="file" name="note"  placeholder="" required/>
+                </div>
+                
+                  
+                <div class="form-submit text-right">
+                    <button type="submit" class="btn btn-style btn-primary">Check Now</button>
+                  </div>
+              </form>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

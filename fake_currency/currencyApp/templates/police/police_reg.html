@@ -1,0 +1,51 @@
+{% extends 'register.html' %}
+{% block content %}
+
+ <div class="form-41-mian section-gap mt-5">
+        <div class="container">
+          <div class="d-grid align-form-map">
+            <div class="form-inner-cont">
+              <form action="/police_reg/" method="post" class="signin-form" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-input">
+                  <label for="w3lName">Name</label>
+                  <input type="text" name="name" id="w3lName" placeholder="" required/>
+                </div>
+                <div class="form-input">
+                  <label for="w3lName">ID CARD</label>
+                  <input type="file" name="idcard" id="w31Name" required/>
+                </div>
+
+
+                 <div class="form-input">
+                  <label for="w3lName">Email</label>
+                  <input type="text" name="email" id="w3lName" placeholder="" required/>
+                </div>
+                 <div class="form-input">
+                  <label for="w3lName">Password</label>
+                  <input type="text" name="psw" id="w3lName" placeholder="" required />
+                  
+                </div>
+                 <div class="form-input">
+                  <label for="w3lName">Phone no:</label>
+                 <input type="text" name="phone" id="w3lName" maxlength="10" placeholder="" required />
+               </div>
+
+                
+                 <div class="form-input">
+                  <label for="w3lName">Place</label>
+                  <input type="text" name="place" id="w3lName" placeholder="" required/>
+                </div>
+                 
+                <div class="form-submit text-right">
+                    <button type="submit" class="btn btn-style btn-primary">Register Here</button>
+                  </div>
+              </form>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      
+{% endblock %}
